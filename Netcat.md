@@ -87,31 +87,24 @@ nc -zv target.com 20-100
 nc -vv -w 3 -z 192.168.1.1 80-443
 ```
 **2. 简易聊天服务器**[-7](https://bbs.huaweicloud.com/blogs/463002)[-9](https://cloud.tencent.com.cn/developer/article/1933543?from=15425)
-
+```bash
 # 服务端（机器A）
 nc -l -p 8888
 # 客户端（机器B）
 nc 192.168.1.10 8888
 # 之后双方可实时输入文字，Ctrl+C 结束
-
+```
 **3. 文件传输**[-1](https://cloud.tencent.com.cn/developer/article/2473236?from=15425&frompage=seopage)[-5](https://cyberpanel.net/blog/netcat-command-in-linux#:~:text=Let's%20dive%20in!-,What%20is%20Netcat%20Command%20in%20Linux?,get%20access%20to%20the%20remote.)[-7](https://bbs.huaweicloud.com/blogs/463002)
-
-
-
+```bash
 # 接收端（先启动）
 nc -l -p 8888 > received_file.txt
 # 发送端
 nc 192.168.1.10 8888 < local_file.txt
-
+```
 **4. 传输整个目录**（结合 tar）[-7](https://bbs.huaweicloud.com/blogs/463002)
-
-bash
-
-复制
-
-下载
-
+```bash
 # 接收端
 nc -l -p 8888 | tar -xzf -
 # 发送端
 tar -czf - /path/to/directory/ | nc 192.168.1.10 8888
+```
