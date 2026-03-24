@@ -53,7 +53,6 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt -t 4 ssh://192.168.1.100
 **说明**：`-l root` 指定单个用户名，`-P` 指定密码字典，`-t 4` 设置4个线程，目标是SSH服务。
 
 ## 五、常用命令与选项
-
 ### 5.1 核心参数
 
 | 参数          | 说明                             | 示例                 |
