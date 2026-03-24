@@ -1,19 +1,12 @@
 # 一、概念
 
-**Hydra**（又名九头蛇）是一款开源的网络登录暴力破解工具，由著名的黑客组织THC（The Hacker's Choice）开发[-5](https://rivers.chaitin.cn/blog/cqjeskh0lnedo7thq0lg)[-10](https://baike.baidu.com/item/Hydra/2878158)。它被设计用来测试各种网络服务的安全性，通过自动化尝试大量的用户名和密码组合，验证是否存在弱口令漏洞。
-
-**为什么叫“九头蛇”？**  
-九头蛇是希腊神话中的多头蛇怪，砍掉一个头会再长出两个头，象征着难以彻底消灭。Hydra工具的名字寓意着它支持多种协议、能同时发起大量并发攻击，像九头蛇一样凶猛且难以防御[-5](https://rivers.chaitin.cn/blog/cqjeskh0lnedo7thq0lg)[-8](https://developer.aliyun.com/article/1618750)。
+**Hydra**（又名九头蛇）是一款开源的网络登录暴力破解工具，由著名的黑客组织THC（The Hacker's Choice）开发[-5](https://rivers.chaitin.cn/blog/cqjeskh0lnedo7thq0lg)[百度百科](https://baike.baidu.com/item/Hydra/2878158)。它被设计用来测试各种网络服务的安全性，通过自动化尝试大量的用户名和密码组合，验证是否存在弱口令漏洞。
 
 **主要应用场景**：
 
-- **渗透测试**：验证SSH、FTP、RDP等服务的弱口令风险
-    
+- **渗透测试**：验证**SSH**、FTP、RDP等服务的弱口令风险
 - **安全审计**：评估企业内部系统的密码强度
-    
 - **授权测试**：在获得授权后，模拟攻击者进行暴力破解
-    
 - **CTF比赛**：快速爆破题目中的服务登录凭证
-    
 
 **⚠️ 重要声明**：Hydra只能用于**合法授权的测试环境**。未经授权对他人系统进行暴力破解属于违法行为，可能面临法律制裁[-2](https://www.juhe.cn/news/index/id/11717)[-5](https://rivers.chaitin.cn/blog/cqjeskh0lnedo7thq0lg)。
