@@ -136,30 +136,22 @@ hydra -L users.txt -P pass.txt 192.168.1.100 http-post-form \
 **如何获取表单信息**：  
 浏览器F12 → 查看 `<form>` 标签的 `action` 和 `method` → 记录各 `<input>` 的 `name` 属性。
 ## 6.5 密码自动生成（`-x`）
-
-bash
-
+```bash
 # 生成所有4位纯小写字母密码（aaaa~zzzz）
 hydra -l admin -x 4:4:a ssh://192.168.1.100
 # 生成5-8位大小写字母+数字
 hydra -l admin -x 5:8:aA1 ssh://192.168.1.100
+```
 
 语法：`MIN:MAX:CHARSET`
-
 - `MIN`：最小长度
-    
 - `MAX`：最大长度
-    
 - `CHARSET`：a=小写字母，A=大写字母，1=数字
-    
-
 ## 6.6 批量目标扫描（`-M`）
-
-bash
-
+```bash
 # targets.txt 每行一个IP或域名，可带端口
 hydra -l admin -P pass.txt -M targets.txt ssh -t 4
-
+```
 ## 6.7 恢复中断任务（`-R`）
 
 如果破解过程中断，Hydra会生成恢复文件，下次用 `-R` 继续。
