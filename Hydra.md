@@ -142,7 +142,6 @@ hydra -l admin -x 4:4:a ssh://192.168.1.100
 # 生成5-8位大小写字母+数字
 hydra -l admin -x 5:8:aA1 ssh://192.168.1.100
 ```
-
 语法：`MIN:MAX:CHARSET`
 - `MIN`：最小长度
 - `MAX`：最大长度
