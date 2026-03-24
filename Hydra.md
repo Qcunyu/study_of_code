@@ -51,3 +51,37 @@ hydra [选项] [目标地址] [服务]
 hydra -l root -P /usr/share/wordlists/rockyou.txt -t 4 ssh://192.168.1.100
 ```
 **说明**：`-l root` 指定单个用户名，`-P` 指定密码字典，`-t 4` 设置4个线程，目标是SSH服务。
+
+## 五、常用命令与选项
+
+### 5.1 核心参数
+
+| 参数          | 说明                             | 示例                 |
+| ----------- | ------------------------------ | ------------------ |
+| `-l`        | 指定单个用户名                        | `-l admin`         |
+| `-L`        | 指定用户名字典文件                      | `-L users.txt`     |
+| `-p`        | 指定单个密码                         | `-p 123456`        |
+| `-P`        | 指定密码字典文件                       | `-P passwords.txt` |
+| `-C`        | 使用“用户名:密码”格式的文件                | `-C creds.txt`     |
+| `-M`        | 指定目标主机列表文件                     | `-M targets.txt`   |
+| `-t`        | 并发线程数（默认16）                    | `-t 8`             |
+| `-o`        | 输出结果到文件                        | `-o result.txt`    |
+| `-v` / `-V` | 显示详细过程                         | `-vV`              |
+| `-f`        | 找到第一个有效凭证后停止                   | `-f`               |
+| `-s`        | 指定非标准端口                        | `-s 2222`          |
+| `-e nsr`    | 额外尝试：n(空密码)、s(用户名即密码)、r(反向用户名) | `-e ns`            |
+| `-x`        | 自定义密码生成规则                      | `-x 4:4:a`         |
+| `-w`        | 设置超时时间（秒）                      | `-w 10`            |
+| `-R`        | 恢复中断的破解任务                      | `-R`               |
+
+### 5.2 支持的服务协议（部分）
+
+|协议|示例|
+|---|---|
+|ssh|`hydra -l root -P pass.txt ssh://192.168.1.1`|
+|ftp|`hydra -L users.txt -P pass.txt ftp://192.168.1.1`|
+|rdp|`hydra -l administrator -P pass.txt rdp://192.168.1.1`|
+|mysql|`hydra -l root -P pass.txt mysql://192.168.1.1`|
+|smb|`hydra -l admin -P pass.txt smb://192.168.1.1`|
+|http-post-form|`hydra -L users.txt -P pass.txt 192.168.1.1 http-post-form`|
+|telnet|`hydra -L users.txt -P pass.txt telnet://192.168.1.1`|
