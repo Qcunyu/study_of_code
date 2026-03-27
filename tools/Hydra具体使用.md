@@ -113,43 +113,25 @@ hydra -l <用户名> -P <密码字典> smb://<目标IP>
 ```
 - 端口通常为 445 或 139
 ### 2. SNMP
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -P <密码字典> snmp://<目标IP[:端口]>
-
-- SNMP v1/v2 使用 community string，可用 `-l` 指定 community 名。
-    
+```
+- SNMP v1/v2 使用 community string，可用 `-l` 指定 community 名
 
 ---
 
 ## 六、其他常见模块
-
 - **cisco**：Cisco 设备 enable 密码爆破。
-    
 - **vnc**：VNC 远程桌面密码爆破。
-    
 - **pcanywhere**：pcAnywhere 服务。
-    
 
 格式统一为：
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> <模块名>://<目标IP[:端口]>
-
+```
 若模块支持附加参数，可在模块名后加冒号和参数（如 `http-post-form` 的引号内容）。
 
 ---
-
 ## 七、常用全局选项（适用于所有模块）
 
 |选项|说明|
