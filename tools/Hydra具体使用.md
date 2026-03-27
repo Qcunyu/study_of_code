@@ -13,14 +13,9 @@ hydra [全局选项] 目标[:端口] 模块 "模块参数"
 ### 1. `http-post-form` / `https-post-form`
 
 用于破解基于 POST 方法的 Web 登录表单。
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> <目标IP[:端口]> http-post-form "路径:参数字符串:失败/成功判断条件"
+```
 
 **参数解释**：
 
