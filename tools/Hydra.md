@@ -133,6 +133,8 @@ hydra -L users.txt -P pass.txt 192.168.1.100 http-post-form \
 - `username=^USER^&password=^PASS^`：POST数据，`^USER^`和`^PASS^`为占位符
 - `Invalid login`：登录失败时页面包含的特征字符串
 
+**具体见[[Hydra具体使用]]**
+
 **如何获取表单信息**：  
 浏览器F12 → 查看 `<form>` 标签的 `action` 和 `method` → 记录各 `<input>` 的 `name` 属性。
 ## 6.5 密码自动生成（`-x`）
