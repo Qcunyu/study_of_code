@@ -75,15 +75,15 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt -t 4 ssh://192.168.1.100
 
 ## 5.2 支持的服务协议（部分）
 
-|协议|示例|
-|---|---|
-|ssh|`hydra -l root -P pass.txt ssh://192.168.1.1`|
-|ftp|`hydra -L users.txt -P pass.txt ftp://192.168.1.1`|
-|rdp|`hydra -l administrator -P pass.txt rdp://192.168.1.1`|
-|mysql|`hydra -l root -P pass.txt mysql://192.168.1.1`|
-|smb|`hydra -l admin -P pass.txt smb://192.168.1.1`|
-|http-post-form|`hydra -L users.txt -P pass.txt 192.168.1.1 http-post-form`|
-|telnet|`hydra -L users.txt -P pass.txt telnet://192.168.1.1`|
+| 协议             | 示例                                                          |
+| -------------- | ----------------------------------------------------------- |
+| ssh            | `hydra -l root -P pass.txt ssh://192.168.1.1`               |
+| ftp            | `hydra -L users.txt -P pass.txt ftp://192.168.1.1`          |
+| rdp            | `hydra -l administrator -P pass.txt rdp://192.168.1.1`      |
+| mysql          | `hydra -l root -P pass.txt mysql://192.168.1.1`             |
+| smb            | `hydra -l admin -P pass.txt smb://192.168.1.1`              |
+| http-post-form | `hydra -L users.txt -P pass.txt 192.168.1.1 http-post-form` |
+| telnet         | `hydra -L users.txt -P pass.txt telnet://192.168.1.1`       |
 ### 📌 为什么 Hydra 要区分这么多协议？
 Hydra 支持超过 50 种协议，是因为**不同的网络服务使用各自独立的认证协议**（如 SSH 用密钥交换，HTTP 用表单提交，RDP 用远程桌面协议）。每种协议的握手方式、认证数据格式、成功/失败判断依据都截然不同，因此 Hydra 必须为每种协议单独实现“对话逻辑”。
 
