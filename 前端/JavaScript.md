@@ -65,18 +65,52 @@ function add(a, b) {
 ```javascript
 const add = function(a, b) { return a + b; };
 ```
-### 3. 箭头函数 (ES6)
-
-javascript
-
-复制
-
-下载
-
+## 3. 箭头函数 (ES6)
+```javascript
 const add = (a, b) => a + b;
 // 注意：箭头函数没有自己的 this，不绑定 arguments
+```
+## 4. 默认参数
+```javascript
+function greet(name = 'Guest') { ... }
+```
+## 5. 高阶函数
+- 函数作为参数或返回值，常见于 `map`、`filter`、`reduce`、`setTimeout` 等。
 
-### 4. 默认参数
+---
+
+## 六、对象与数组
+
+### 1. 对象操作
+```javascript
+const obj = { name: 'Alice', age: 25 };
+obj.name        // 点语法
+obj['name']     // 方括号，可用于动态属性
+delete obj.age  // 删除属性
+'name' in obj   // 检查属性是否存在
+```
+### 2. 数组常用方法
+
+|方法|说明|
+|---|---|
+|`push()` / `pop()`|末尾增删|
+|`unshift()` / `shift()`|开头增删|
+|`map()`|映射新数组|
+|`filter()`|过滤|
+|`reduce()`|累计计算|
+|`forEach()`|遍历|
+|`find()` / `findIndex()`|查找元素/索引|
+|`includes()`|是否包含|
+|`join()`|转为字符串|
+|`slice()` / `splice()`|切片/修改原数组|
+
+---
+
+## 七、DOM 操作（与 [[HTML]] 交互）
+
+DOM（文档对象模型）将 HTML 文档表示为树形结构，JS 可动态修改。
+
+### 1. 选择元素
 
 javascript
 
@@ -84,8 +118,62 @@ javascript
 
 下载
 
-function greet(name = 'Guest') { ... }
+document.getElementById('id')
+document.querySelector('.class')      // 返回第一个匹配
+document.querySelectorAll('div')       // 返回 NodeList
 
-### 5. 高阶函数
+### 2. 修改内容与属性
 
-- 函数作为参数或返回值，常见于 `map`、`filter`、`reduce`、`setTimeout` 等。
+javascript
+
+复制
+
+下载
+
+element.innerHTML = '<strong>hi</strong>';   // 解析 HTML，有 XSS 风险
+element.textContent = 'hi';                  // 纯文本，安全
+element.setAttribute('class', 'active');
+element.getAttribute('data-id');
+element.classList.add('hidden');
+
+### 3. 创建与插入元素
+
+javascript
+
+复制
+
+下载
+
+const newDiv = document.createElement('div');
+document.body.appendChild(newDiv);
+parent.insertBefore(newDiv, referenceNode);
+
+### 4. 删除元素
+
+javascript
+
+复制
+
+下载
+
+element.remove();
+
+### 5. 事件监听
+
+javascript
+
+复制
+
+下载
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', (event) => {
+    console.log(event.target);
+});
+// 常见事件：click, submit, input, keyup, load, DOMContentLoaded
+
+**安全视角**：
+
+- `innerHTML` 直接插入用户输入会导致 **XSS**，优先使用 `textContent`。
+    
+- 动态添加的 `<script>` 不会执行，但可通过 `eval` 或 `Function` 构造函数执行代码，这些都是危险操作。
