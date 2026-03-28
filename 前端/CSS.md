@@ -81,21 +81,14 @@
 - 适用于导航栏、卡片列表、垂直居中。
 
 ### 3. Grid（二维布局）
-
-css
-
-复制
-
-下载
-
+```css
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;  /* 三列等宽 */
     gap: 10px;
 }
-
+```
 - 适用于整体页面布局、复杂网格。
-    
 
 ### 4. 定位（`position`）
 
@@ -108,7 +101,76 @@ css
 |`sticky`|粘性定位，滚动到阈值时表现类似 fixed|
 
 **安全视角**：
-
 - `position: absolute` + `left: -9999px` 或 `visibility: hidden` 可隐藏恶意元素，用于钓鱼或水坑攻击。
-    
 - `position: fixed` 可制作覆盖全屏的钓鱼浮层。
+
+---
+
+# 六、常用样式属性
+
+### 1. 颜色与背景
+- `color`: 文字颜色
+- `background-color` / `background-image`: 背景
+- `opacity`: 透明度（0~1）
+### 2. 文字
+- `font-size`、`font-family`、`font-weight`（粗细）、`text-align`（对齐）、`line-height`
+### 3. 圆角与阴影
+- `border-radius`: 圆角，常用于按钮、卡片
+- `box-shadow`: 阴影，可制造视觉层次
+### 4. 过渡与动画
+- `transition`: 平滑变化（如 `transition: all 0.3s`）
+- `@keyframes` + `animation`: 复杂动画
+
+---
+
+# 七、响应式设计
+
+- **媒体查询**：根据屏幕尺寸、设备特性应用不同样式
+```css
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+```
+- **视口 meta 标签**：`<meta name="viewport" content="width=device-width, initial-scale=1.0">`，移动端适配必备。
+
+---
+
+# 八、与 [[HTML]]、[[JavaScript]] 的协作
+
+|角色|说明|
+|---|---|
+|**[[HTML]]**|提供 DOM 结构，CSS 通过选择器选中元素|
+|**[[JavaScript]]**|可动态修改元素的 `class`、`style` 属性，甚至添加/删除样式表，实现动态交互|
+|**安全联动**|攻击者可能利用 [[JavaScript]] 动态修改 CSS，隐藏恶意内容或伪造界面（如假登录框）。CSS 的 `url()` 属性可用于 CSRF 或 SSRF 探测。|
+
+**渗透测试中关注 CSS 的点**：
+- 检查 `background-image: url()` 是否引用外部资源，可能存在 SSRF。
+- 检查 `@import` 是否加载远程样式表，可能引入恶意内容。
+- 利用 CSS 属性选择器 `[value^="admin"]` 可配合 [[JavaScript]] 窃取输入内容（但现代浏览器有防护）。
+- 隐藏元素（`display: none`）中可能存放敏感信息，如测试环境路径、隐藏的 API 接口。
+
+---
+
+# 九、常见问题与速查
+
+|问题|解决方案|
+|---|---|
+|水平垂直居中|Flexbox: `display: flex; justify-content: center; align-items: center;`|
+|清除浮动|父元素 `overflow: hidden` 或使用伪类 `clearfix`|
+|优先级冲突|内联样式 > ID > 类 > 元素，可通过 `!important` 强制，但不推荐|
+|移动端适配|使用媒体查询 + `viewport` 标签|
+
+---
+
+## 十、快速回顾清单
+
+- 三种引入方式：外部、内部、内联
+- 选择器：元素、类、ID、属性、后代、子、伪类
+- 盒模型：content → padding → border → margin
+- 布局：常规流、Flex、Grid、定位（relative/absolute/fixed/sticky）
+- 常用属性：颜色、字体、圆角、阴影、过渡
+- 响应式：媒体查询、视口设置
+- 与 [[HTML]]、[[JavaScript]] 的协作关系
+- 安全视角：隐藏元素、远程资源加载、伪类利用
