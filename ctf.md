@@ -10,3 +10,7 @@ SQL注入
 ## 线上平台
 信息收集
 [[FOFA]] 
+
+## 语言
+前端
+[[HTML]] [[JavaScript]] [[CSS]]
