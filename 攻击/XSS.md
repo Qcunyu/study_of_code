@@ -195,7 +195,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.c
 
 ---
 
-## 六、防御措施的局限性
+# 六、防御措施的局限性
 
 |防御措施|局限性|
 |---|---|
@@ -206,7 +206,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.c
 
 ---
 
-## 七、常用工具与资源
+# 七、常用工具与资源
 
 |工具/资源|用途|
 |---|---|
@@ -219,43 +219,30 @@ Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.c
 
 ---
 
-## 八、渗透测试关注点
+# 八、渗透测试关注点
 
 **发现注入点时注意**[-1](https://cloud.tencent.cn/developer/article/2437214?from=15425)：
 
 - **用户输入位置**：GET/POST 参数、HTTP 头部（User-Agent、Referer、Cookie）、文件上传名
-    
 - **数据输出位置**：搜索结果、评论区、用户资料、错误提示、日志信息
-    
 - **隐藏输入**：审查 HTML 源码，寻找 `hidden` 字段，可能存在注入点
-    
 
 **测试流程**[-1](https://cloud.tencent.cn/developer/article/2437214?from=15425)：
 
 1. 定位用户输入点
-    
 2. 尝试修改输入并观察输出
-    
 3. 分析标签闭合与过滤规则
-    
 4. 构造有效 payload 并验证
-    
 
 ---
 
 ## 九、快速回顾清单
 
 - **三大类型**：反射型（URL 反射）、存储型（数据库存储）、DOM 型（客户端 JS 缺陷）
-    
 - **攻击利用**：窃取 Cookie、会话劫持、键盘记录、钓鱼、内网探测
-    
 - **防御措施**：输出编码、CSP、HttpOnly Cookie、禁用危险标签/函数
-    
 - **绕过技巧**：标签/属性枚举、大小写混合、双写、Unicode 编码
-    
 - **工具链**：[[Burp Suite]]（Intruder 枚举）、XSStrike（自动检测）、DOMPurify（前端清理）、BeEF（后续利用）
-    
-
 ---
 
 **总结**：XSS 的本质是 **数据被当作代码执行**。防御的核心在于根据输出上下文进行正确编码，而非简单地过滤输入。CSP 是最强有力的深度防御手段，HttpOnly Cookie 是保护会话的基本配置。在渗透测试中，XSS 的利用链条远不止弹窗，结合 BeEF 等框架可实现更复杂的内网渗透。
