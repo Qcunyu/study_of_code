@@ -16,7 +16,7 @@ XSS 是 CVE 数据库中报告最频繁的 Web 漏洞之一，长期位于 OWASP
 
 ## 二、攻击方式
 
-XSS 攻击主要分为三类：反射型、存储型、DOM 型[-5](https://semgrep.dev/docs/learn/vulnerabilities/cross-site-scripting)。前两种需要经过服务器，最后一种仅涉及客户端，由前端 JS 逻辑缺陷导致-。
+XSS 攻击主要分为三类：**反射型**、**存储型**、**DOM 型**[-5](https://semgrep.dev/docs/learn/vulnerabilities/cross-site-scripting)。前两种需要经过服务器，最后一种仅涉及客户端，由前端 JS 逻辑缺陷导致-。
 
 ### 2.1 反射型 XSS（Reflected XSS）
 
