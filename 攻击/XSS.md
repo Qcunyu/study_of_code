@@ -84,36 +84,32 @@ document.onkeypress = function(e) {
 
 通过修改页面 DOM 伪造登录框，窃取用户密码。常见于存储型 XSS。
 
-### 3.4 内网探测
+## 3.4 内网探测
 
 利用 JavaScript 发起内网请求，探测内网资产，常用于跳板攻击。
 
-### 3.5 挂马与蠕虫传播
+## 3.5 挂马与蠕虫传播
 
 利用 XSS 漏洞传播恶意软件或跨站脚本蠕虫[-11](https://developer.baidu.com/article/detail.html?id=3361362)。
 
 ---
 
-## 四、绕过技巧与 WAF 对抗
+# 四、绕过技巧与 WAF 对抗
 
-### 4.1 标签与属性枚举
+## 4.1 标签与属性枚举
 
 应用程序通常会过滤某些标签或属性，但往往不会过滤全部。可使用 [[Burp Suite]] 的 **Intruder** 模块枚举允许的标签和属性，从而构造有效的 payload[-21](https://portswigger.net/burp/documentation/desktop/testing-workflow/vulnerabilities/input-validation/xss/bypassing-filters)。
 
 **流程**：
 
 1. 将请求发送到 Intruder
-    
 2. 用 `<§§>` 测试标签，用 `<tag §§="test">` 测试属性
-    
 3. 观察哪些标签/属性返回 200 状态码
-    
 4. 利用允许的标签和属性构造 payload[-21](https://portswigger.net/burp/documentation/desktop/testing-workflow/vulnerabilities/input-validation/xss/bypassing-filters)
-    
 
 PortSwigger 提供 XSS Cheat Sheet 可直接使用[-21](https://portswigger.net/burp/documentation/desktop/testing-workflow/vulnerabilities/input-validation/xss/bypassing-filters)。
 
-### 4.2 常见过滤绕过方法
+## 4.2 常见过滤绕过方法
 
 |过滤方式|绕过技巧|示例|
 |---|---|---|
@@ -126,7 +122,7 @@ PortSwigger 提供 XSS Cheat Sheet 可直接使用[-21](https://portswigger.net/
 
 **详细绕过方法参考**：[-39](https://www.cnblogs.com/TNpiper/p/18568929)
 
-### 4.3 利用 XSS 工具
+## 4.3 利用 XSS 工具
 
 - **XSStrike**：高级 XSS 检测与绕过框架[-39](https://www.cnblogs.com/TNpiper/p/18568929)
     
